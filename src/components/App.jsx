@@ -1,11 +1,22 @@
 import css from './App.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Form from './Form/Form';
 import Filter from './Filter/Filter';
 import ContactList from './Contacts/Contacts';
 export const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    const savedContacts = JSON.parse(localStorage.getItem('contacts'));
+    if (savedContacts) {
+      setContacts(savedContacts);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = contact => {
     setContacts(prevContacts => [contact, ...prevContacts]);
