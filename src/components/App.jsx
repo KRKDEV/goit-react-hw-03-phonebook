@@ -44,17 +44,9 @@ export class App extends Component {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-  deleteContact = identification => {
-    // setContacts(prevContacts =>
-    //   prevContacts.filter(contact => contact.id !== id)
-    // )
-    // const deletedName = this.state.contacts.find(
-    //   ({ id }) => id === identification
-    // ).name;
+  deleteContact = id => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(
-        contact => contact.id !== identification
-      ),
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
   render() {
