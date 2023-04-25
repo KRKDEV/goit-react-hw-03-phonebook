@@ -77,11 +77,9 @@ const Form = ({ contacts, onSubmit }) => {
 export default Form;
 
 Form.propTypes = {
-  contacts: PropTypes.array,
   onSubmit: PropTypes.func,
   name: PropTypes.string,
   number: PropTypes.string,
   pattern: PropTypes.string,
   title: PropTypes.string,
-  onChange: PropTypes.func,
 };
